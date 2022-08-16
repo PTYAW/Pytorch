@@ -1,3 +1,5 @@
+#   这里介绍了transfors常用的一些工具
+
 #   输入  PIL     Image.open()
 #   输出  tensor  Totensor()
 #   作用  narrays cv.imread()
@@ -41,5 +43,14 @@ trans_resize_2 = transforms.Resize(512)
 trans_compose = transforms.Compose([trans_resize_2, trans_totensor])
 img_resize_2 = trans_compose(img)
 write.add_image("Resize_2", img_resize_2, 1)
+
+#   Random：随机裁剪
+#   参数：size:一个参数就是正方形，或者输入（高，宽）
+trans_random = transforms.RandomCrop((211, 300))
+trans_compose_2 = transforms.Compose([trans_random, trans_totensor])
+for i in range(0, 10):
+    img_random = trans_compose_2(img)
+    write.add_image("RandomCrop", img_random, i)
+
 
 write.close()
