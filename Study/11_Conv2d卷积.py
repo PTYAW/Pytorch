@@ -1,3 +1,5 @@
+#   nn.Conv2d
+
 import torch
 import torchvision
 from torch import nn
@@ -37,3 +39,5 @@ for data in dataloader:
     write.add_images("shuru", imgs, step)
     write.add_images("shuchu", img_shuchu, step)
     step = step+1
+
+write.close()
