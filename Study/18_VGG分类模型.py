@@ -10,7 +10,7 @@ vgg16_false = torchvision.models.vgg16(pretrained=False)
 vgg16_true = torchvision.models.vgg16(pretrained=True)
 print("vgg16_true")
 
-train_data = torchvision.datasets.CIFAR10("datset_CIF10", train=True, transform=torchvision.transforms.ToTensor(),
+train_data = torchvision.datasets.CIFAR10("dataset_CIF10", train=True, transform=torchvision.transforms.ToTensor(),
                                           download=True)
 
 #   vgg16_true输出层1000，但是CIFAR10输入只有10层
@@ -24,8 +24,8 @@ vgg16 = torchvision.models.vgg16(pretrained=False)
 #   保存方式1:保存了参数和结构
 torch.save(vgg16, "vgg16_method1.pth")
 #   方式1的读取
-# modle = torch.load("vgg16_method1.pth")
-# print(modle)
+# model = torch.load("vgg16_method1.pth")
+# print(model)
 
 #   保存方式2:只保存参数(官方推荐)
 torch.save(vgg16.state_dict(), "vgg16_method2.pth")
